@@ -1,0 +1,32 @@
+Exercício 01
+Um navegador simplificado precisa oferecer os botões Voltar e Avançar. Cada vez que o usuário visita uma
+nova página, ela passa a ser a página atual; as páginas anteriores ficam disponíveis para o botão Voltar.
+Quando o usuário volta, a página que deixou de ser exibida fica disponível para o botão Avançar. Se o usuário
+visitar uma nova página depois de ter voltado, a lista de páginas para avançar é descartada.
+Estrutura sugerida
+public class Navegador {
+ private String paginaAtual;
+ private Deque<String> historicoVoltar;
+ private Deque<String> historicoAvancar;
+ public void visitar(String url) { ... }
+ public boolean voltar() { ... }
+ public boolean avancar() { ... }
+}
+O que implementar
+a) Implemente visitar(url): a página atual, se existir, vai para o topo de historicoVoltar; a nova URL
+passa a ser a atual; historicoAvancar é esvaziado.
+b) Implemente voltar(): se houver páginas para voltar, a atual vai para historicoAvancar e o topo de
+historicoVoltar passa a ser a atual. Devolva false quando não houver para onde voltar.
+c) Implemente avancar() seguindo a mesma ideia do voltar().
+d) Na classe principal, simule a sequência: visitar A, B, C; voltar; voltar; avancar; visitar D; voltar; avancar;
+avancar. Após cada operação, exiba a página atual e a quantidade de páginas em cada pilha.
+e) Exiba, ao final, o conteúdo completo de historicoVoltar sem removê-lo, utilizando forEach com
+method reference.
+Restrições e pontos de atenção
+– Utilize Deque<String> declarado pela interface, com ArrayDeque como implementação. Não use Stack.
+Não falei sobre Stack e Deque em aula, mas vocês viram com a Patrícia. Pela documentação da linguagem
+vocês conseguem utilizar
+– Utilize apenas os métodos de pilha (push, pop, peek, isEmpty, clear). Não acesse os elementos por
+índice.
+– Após a operação visitar D, a chamada avancar() deve devolver false — verifique se o seu esvaziamento
+está correto.

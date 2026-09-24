@@ -1,0 +1,27 @@
+Exercício 02
+Um aplicativo de música guarda a playlist do usuário como uma lista de faixas. Cada faixa possui título, artista,
+duração em segundos, ano de lançamento e a quantidade de vezes que foi reproduzida.
+Estrutura sugerida
+public class Faixa {
+ private String titulo;
+ private String artista;
+ private int duracaoSegundos;
+ private int ano;
+ private int reproducoes;
+}
+O que implementar
+a) Crie uma List<Faixa> de ao menos quatro artistas diferentes e com alguns anos repetidos.
+b) Exiba a playlist ordenada por artista e, dentro do mesmo artista, por ano decrescente. Utilize
+Comparator.comparing com thenComparing.
+c) Exiba as cinco faixas mais reproduzidas, da mais reproduzida para a menos reproduzida, mostrando
+somente título e quantidade de reproduções.
+d) Remova da playlist todas as faixas com menos de 3 reproduções e exiba quantas foram removidas.
+Dica: pode ser utilizado o removei.
+e) Calcule e exiba a duração total da playlist restante no formato hh:mm:ss. A soma deve ser feita com
+mapToInt e sum; a formatação, na classe principal.
+Restrições e pontos de atenção
+– O item 2 exige Comparator.comparing(Faixa::getArtista).thenComparing(Faixa::getAno,
+Comparator.reverseOrder()) ou equivalente. Observe que .reversed() aplicado ao final inverteria
+também a ordem dos artistas.
+– A lista original não pode ser alterada pelas ordenações dos itens 2 e 3 — use sorted() em um Stream ou
+trabalhe sobre uma cópia.

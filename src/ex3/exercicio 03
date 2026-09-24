@@ -1,0 +1,24 @@
+Exercício 03
+A organização de um congresso recebe inscrições por vários canais e o mesmo participante acaba cadastrado
+mais de uma vez, às vezes com o e-mail digitado com letras maiúsculas ou espaços extras. Dois convidados
+são considerados a mesma pessoa quando possuem o mesmo e-mail, desconsiderando maiúsculas,
+minúsculas e espaços nas extremidades.
+Estrutura sugerida
+public class Convidado {
+ private String nome;
+ private String email;
+ private String empresa;
+}
+3
+O que implementar
+a) Sobrescreva equals() e hashCode() em Convidado considerando apenas o e-mail normalizado para
+minúsculo.
+b) Crie uma List<Convidado> contendo ao menos quatro duplicatas disfarçadas ("Ana@Empresa.com",
+" ana@empresa.com " etc.).
+c) Converta a lista em um Set<Convidado> e exiba a quantidade de registros antes e depois da remoção
+de duplicatas.
+d) Dada uma segunda coleção, Set<Convidado> confirmados, exiba com retainAll quais inscritos
+confirmaram presença e, com removeAll, quais ainda não confirmaram.
+Restrições e pontos de atenção
+– Não altere a lista original para remover duplicatas; a remoção deve ser consequência do contrato de Set.
+– O hashCode() deve ser coerente com o equals(): teste incluindo o mesmo e-mail com grafias diferentes.

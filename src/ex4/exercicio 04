@@ -1,0 +1,31 @@
+Exercício 04
+O formulário de cadastro de um aplicativo precisa validar os dados informados pelo usuário. Em vez de uma
+sequência de if, as regras devem ser modeladas como interfaces funcionais reutilizáveis e combináveis.
+Estrutura sugerida
+public class Cadastro {
+ private String nome;
+ private String email;
+ private String senha;
+ private int idade;
+}
+@FunctionalInterface
+public interface Regra {
+ String validar(Cadastro c); // devolve null quando válido ou a mensagem de erro
+}
+O que implementar
+a) Declare, como variáveis do tipo Predicate<Cadastro>, as regras: nome com ao menos 3 caracteres;
+e-mail contendo @ e .; senha com ao menos 8 caracteres; senha contendo ao menos um dígito; idade
+entre 18 e 120.
+b) Combine as regras com and(), or() e negate() para construir: cadastroValido (todas as regras) e
+senhaFraca (senha curta OU sem dígito). Exiba o resultado dos dois predicados para pelo menos cinco
+cadastros de teste.
+c) Implemente a interface Regra com lambdas, monte uma List<Regra> e escreva um método
+List<String> erros(Cadastro c) que percorra a lista e devolva todas as mensagens de erro (não
+apenas a primeira).
+4
+Restrições e pontos de atenção
+– Neste exercício não se usa Stream: o objetivo é dominar as interfaces de java.util.function e a
+composição de funções.
+– Nenhum if pode aparecer nas regras de validação — as condições devem estar dentro das lambdas.
+– O item 4 exige diferenciar Predicate (resposta sim/não) de Regra (resposta com mensagem). Comente
+por que uma interface própria foi necessária.

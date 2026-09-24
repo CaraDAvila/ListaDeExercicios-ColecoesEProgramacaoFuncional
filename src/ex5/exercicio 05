@@ -1,0 +1,45 @@
+Exercício 05
+A secretaria acadêmica controla as matrículas de alunos em disciplinas. Um aluno pode estar matriculado em
+várias disciplinas e cada matrícula registra a nota final obtida. Um aluno é aprovado em uma disciplina
+quando a nota é maior ou igual a 6,0. Uma disciplina só é aberta quando tem ao menos três matriculados.
+Estrutura sugerida
+public class Aluno { // igualdade pelo RM
+ private String rm;
+ private String nome;
+ private String curso;
+}
+public class Disciplina { // igualdade pelo código
+ private String codigo;
+ private String nome;
+ private int semestreSugerido;
+}
+public class Matricula {
+ private Aluno aluno;
+ private Disciplina disciplina;
+ private double nota;
+}
+O que implementar
+a) Sobrescreva equals() e hashCode() em Aluno (pelo RA) e em Disciplina (pelo código).
+b) Crie alguns alunos de dois cursos, de algumas disciplinas disciplinas e algumas matrículas. Garanta que
+uma disciplina tenha menos de três matriculados e que ao menos um aluno tenha nota abaixo de 6 em
+duas disciplinas.
+c) Monte um Map<Disciplina, Set<Aluno>> com os matriculados de cada disciplina. Exiba somente as
+disciplinas abertas, com os alunos em ordem natural (escolha a implementação de Set que garanta
+isso).
+d) Monte um Map<String, Double> contendo a média das notas por curso, usando groupingBy com
+averagingDouble. Exiba as médias com duas casas decimais.
+e) Monte um Map<Aluno, List<String>> com os nomes das disciplinas em que cada aluno foi
+reprovado, usando groupingBy com Collectors.mapping. Exiba somente os alunos com duas ou mais
+reprovações.
+5
+Restrições e pontos de atenção
+– averagingDouble devolve 0.0 para um grupo vazio, o que pode ser enganoso; garanta no item 4 que só
+cursos com matrícula apareçam no mapa.
+– A chave Aluno do item 6 só funciona porque equals()/hashCode() foram sobrescritos. Teste o que
+acontece se você os remover e registre a observação em comentário.
+Saída esperada (fragmento ilustrativo)
+– Disciplina POO2 — 4 matriculados: Ana Lima, Bruno Costa, Carla Souza, Diego Ramos
+– Média por curso: SI = 7,15 | ADS = 6,80
+– Aprovados: 15 (75,0%) | Reprovados: 5 (25,0%)
+– Alunos com 2+ reprovações: Diego Ramos → [Estruturas de Dados, Banco de Dados]
+– Melhor aluno: Ana Lima (SI) — média 9,10

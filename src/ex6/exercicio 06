@@ -1,0 +1,38 @@
+Exercício 06
+Uma plataforma de vídeos registra cada visualização feita pelo usuário. Cada vídeo tem título, canal, duração
+em minutos e um conjunto de tags (por exemplo, "java", "backend", "carreira"). Cada visualização
+registra o vídeo assistido e o percentual assistido (0 a 100). A plataforma mantém uma lista de "assistidos
+recentemente" com no máximo cinco vídeos, sem repetição, em que o mais recente aparece primeiro.
+Estrutura sugerida
+public class Video { // igualdade pelo título + canal
+ private String titulo;
+ private String canal;
+ private int duracaoMinutos;
+ private Set<String> tags;
+}
+public class Visualizacao {
+ private Video video;
+ private int percentualAssistido;
+}
+public class Historico {
+ private List<Visualizacao> visualizacoes = new ArrayList<>();
+ private Deque<Video> recentes = new ArrayDeque<>();
+ public void registrar(Video v, int percentual) { ... }
+}
+O que implementar
+a) Implemente registrar: adiciona a visualização à lista e atualiza recentes — se o vídeo já estiver no
+Deque, ele é removido da posição antiga e inserido no início; se o Deque ultrapassar cinco elementos, o
+mais antigo é descartado.
+b) Crie alguns vídeos de quatro canais, com tags que se repitam entre vídeos, e registre visualizações,
+incluindo o mesmo vídeo assistido mais de uma vez.
+c) Exiba os vídeos assistidos recentemente, do mais recente para o mais antigo, com forEach e method
+reference.
+6
+d) Calcule o total de minutos efetivamente assistidos por canal (duração × percentual / 100), usando
+groupingBy com summingLong (ou summingDouble). Exiba os canais ordenados por minutos
+decrescentes.
+e) Um vídeo é considerado concluído quando alguma visualização atingiu ao menos 90%. Monte um
+Set<Video> de vídeos concluídos e outro de vídeos iniciados e não concluídos, usando operações de
+conjunto entre os dois (removeAll).
+f) Escreva um método que receba um Stream<Visualizacao> como parâmetro e calcule a média de
+percentual assistido.
