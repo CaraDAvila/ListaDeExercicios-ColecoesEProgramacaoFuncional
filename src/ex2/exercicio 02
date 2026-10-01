@@ -25,3 +25,40 @@ Comparator.reverseOrder()) ou equivalente. Observe que .reversed() aplicado ao f
 também a ordem dos artistas.
 – A lista original não pode ser alterada pelas ordenações dos itens 2 e 3 — use sorted() em um Stream ou
 trabalhe sobre uma cópia.
+
+
+
+
+Longevity
+Assemblage 23
+397
+2001
+19
+
+
+Simple Girl
+IAMX
+282
+2004
+18
+
+
+Knives Out
+Radiohead
+254
+2001
+17
+
+All Mixed Up
+311
+181
+1995
+2
+
+
+Dream Attack
+New Order
+308
+1989
+2
+

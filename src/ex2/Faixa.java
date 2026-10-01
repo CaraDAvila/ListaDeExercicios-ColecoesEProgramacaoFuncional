@@ -7,6 +7,24 @@ public class Faixa {
     private int ano;
     private int reproducoes;
 
+    @Override
+    public String toString() {
+        return
+                "\n"+"titulo:" + titulo + "\n" +
+                "artista:" + artista + "\n" +
+                "duracao:" + duracaoSegundos + "\n" +
+                "ano:" + ano + "\n" +
+                "reproducoes:" + reproducoes+"\n";
+    }
+
+    public Faixa(String titulo, String artista, int duracaoSegundos, int ano, int reproducoes) {
+        this.titulo = titulo;
+        this.artista = artista;
+        this.duracaoSegundos = duracaoSegundos;
+        this.ano = ano;
+        this.reproducoes = reproducoes;
+    }
+
     public String getTitulo() {
         return titulo;
     }
